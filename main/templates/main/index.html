@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>TEST INDEX</h1>
-</body>
-</html>
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+  <div class="list-group">
+    <a href="{% url 'mail_send:service_client_view' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img src="https://cdn.icon-icons.com/icons2/2551/PNG/512/user_group_icon_152729.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Клиенты</h6>
+          <p class="mb-0 opacity-75">Электронные адреса клиентов для рассылки.</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'mail_send:mailing_setup_view' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img src="https://cdn.icon-icons.com/icons2/2551/PNG/512/cog_icon_152880.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Настройка рассылки</h6>
+          <p class="mb-0 opacity-75">Основные настройки рассылки, статус работы.</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'mail_send:email_message_view' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img src="https://cdn.icon-icons.com/icons2/2551/PNG/512/save_as_icon_152769.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Настройка сообщений</h6>
+          <p class="mb-0 opacity-75">Редактирование и просмотр сообщений.</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'mail_send:mailing_logs_view' %}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+      <img src="https://cdn.icon-icons.com/icons2/2551/PNG/512/pen_icon_152792.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+      <div class="d-flex gap-2 w-100 justify-content-between">
+        <div>
+          <h6 class="mb-0">Логи</h6>
+          <p class="mb-0 opacity-75">Просмотр логов сервера.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

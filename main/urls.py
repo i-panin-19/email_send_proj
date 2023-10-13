@@ -5,5 +5,5 @@ from main.views import index
 app_name = MainConfig.name
 
 urlpatterns = [
-    path('', index)
+    path('', index, name='index')
 ]
