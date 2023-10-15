@@ -3,7 +3,8 @@ from mail_send.apps import MailSendConfig
 from mail_send.views import ServiceClientListView, MailingSetupListView, EmailMessageListView, MailingLogsListView, \
     ServiceClientDetailView, MailingSetupDetailView, EmailMessageDetailView, MailingLogsDetailView, \
     ServiceClientCreateView, ServiceClientUpdateView, ServiceClientDeleteView, MailingSetupCreateView, \
-    MailingSetupUpdateView, MailingSetupDeleteView
+    MailingSetupUpdateView, MailingSetupDeleteView, EmailMessageCreateView, EmailMessageUpdateView, \
+    EmailMessageDeleteView
 
 app_name = MailSendConfig.name
 
@@ -21,6 +22,9 @@ urlpatterns = [
     path('mailing_setup/delete/<int:pk>/', MailingSetupDeleteView.as_view(), name='mailing_setup_delete'),
     path('email_message/', EmailMessageListView.as_view(), name='email_message_view'),
     path('email_message/<int:pk>/', EmailMessageDetailView.as_view(), name='email_message_detail'),
+    path('email_message/create/', EmailMessageCreateView.as_view(), name='email_message_create'),
+    path('email_message/update/<int:pk>', EmailMessageUpdateView.as_view(), name='email_message_update'),
+    path('email_message/delete/<int:pk>/', EmailMessageDeleteView.as_view(), name='email_message_delete'),
     path('mailing_logs/', MailingLogsListView.as_view(), name='mailing_logs_view'),
     path('mailing_logs/<int:pk>/', MailingLogsDetailView.as_view(), name='mailing_logs_detail'),
 ]

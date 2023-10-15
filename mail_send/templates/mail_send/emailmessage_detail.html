@@ -13,8 +13,8 @@
                     <h2>{{ object.letter_subject }}</h2>
                     <p>{{ object.body_letter }}</p>
                     <p>№ {{ object.pk }}</p>
-                    <a href="#" type="button" class="btn btn-success rounded-pill px-3">Редактировать</a>
-                    <a href="#" type="button" class="btn btn-danger rounded-pill px-3">Удалить</a>
+                    <a href="{% url 'mail_send:email_message_update' object.pk %}" type="button" class="btn btn-success rounded-pill px-3">Редактировать</a>
+                    <a href="{% url 'mail_send:email_message_delete' object.pk %}" type="button" class="btn btn-danger rounded-pill px-3">Удалить</a>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from mail_send.forms import ServiceClientForm, MailingSetupForm
+from mail_send.forms import ServiceClientForm, MailingSetupForm, EmailMessageForm
 from mail_send.models import ServiceClient, MailingSetup, EmailMessage, MailingLogs
 
 
@@ -103,6 +103,35 @@ class EmailMessageDetailView(DetailView):
     model = EmailMessage
     extra_context = {
         'title': 'Сообщение подробно'
+    }
+
+
+class EmailMessageCreateView(CreateView):
+    model = EmailMessage
+    form_class = EmailMessageForm
+    success_url = reverse_lazy('mail_send:email_message_view')
+    extra_context = {
+        'title': 'Создание сообщения'
+    }
+
+
+class EmailMessageUpdateView(UpdateView):
+    model = EmailMessage
+    form_class = EmailMessageForm
+    success_url = reverse_lazy()
+    extra_context = {
+        'title': 'Редактирование сообщения'
+    }
+
+    def get_success_url(self):
+        return reverse('mail_send:email_message_detail', args=[self.object.pk])
+
+
+class EmailMessageDeleteView(DeleteView):
+    model = EmailMessage
+    success_url = reverse_lazy('mail_send:email_message_view')
+    extra_context = {
+        'title': 'Удаление сообщения'
     }
 
 

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'mail_send',
+    'django_apscheduler',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+#APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+
+#APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
